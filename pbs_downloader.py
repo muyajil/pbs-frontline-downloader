@@ -44,10 +44,11 @@ def get_film_links(base_url):
 if __name__ == "__main__":
     film_links = get_film_links(BASE_URL)
     for title, url, season, episode in film_links:
-        output_file_name = f"{season}/Frontline - S{season}E{episode:0>2} - {title}.mp4"
+        season_folder = "Season " + season
+        output_file_name = f"{season_folder}/Frontline - S{season}E{episode:0>2} - {title}.mp4"
         print(season, episode, title, output_file_name, url)
-        if not os.path.exists(season):
-            os.makedirs(season)
+        if not os.path.exists(season_folder):
+            os.makedirs(season_folder)
         command = ["youtube-dl", "-o", output_file_name, url]
         result = subprocess.run(command)
         result.check_returncode()
