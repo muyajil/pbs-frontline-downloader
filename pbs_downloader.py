@@ -43,7 +43,7 @@ def get_film_links(base_url):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('root_dir', metavar='root_dir', type=str, nargs=1, help='root dir where to store videos')
+    parser.add_argument('root_dir', metavar='root_dir', type=str, help='root dir where to store videos')
     args = parser.parse_args()
     errors_file = open('errors.log', 'w')
     film_links = get_film_links(BASE_URL)
